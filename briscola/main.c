@@ -256,7 +256,7 @@ void disposeDeck(struct Card* deck) {
             }
         }
         free(deck);
-        printf("Deck disposed.\nMemory free.\n");
+        printf("Deck disposed.\n);
     } else {
         if(DEBUG == true) {
             printf("Error during disposing the deck, deck is NULL!\n");
