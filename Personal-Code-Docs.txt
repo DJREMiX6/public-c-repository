@@ -1,0 +1,63 @@
+                        PRINTF FORMATTER
+
+specifier                   Output                                                  Example
+d or i                      Signed decimal integer                                  392
+u	                        Unsigned decimal integer	                            7235
+o	                        Unsigned octal	                                        610
+x	                        Unsigned hexadecimal integer	                        7fa
+X	                        Unsigned hexadecimal integer (uppercase)	            7FA
+f	                	    Decimal floating point, lowercase	                    392.65
+F	                        Decimal floating point, uppercase	                    392.65
+e	                        Scientific notation (mantissa/exponent), lowercase	    3.9265e+2
+E	                        Scientific notation (mantissa/exponent), uppercase	    3.9265E+2
+g	                        Use the shortest representation: %e or %f	            392.65
+G	                        Use the shortest representation: %E or %F	            392.65
+a	                        Hexadecimal floating point, lowercase	                -0xc.90fep-2
+A	                        Hexadecimal floating point, uppercase	                -0XC.90FEP-2
+c	                        Character	                                            a
+s	                        String of characters	                                sample
+p	                        Pointer address	                                        b8000000
+n	                        Nothing printed.                                        
+
+                        SCANF FORMATTER
+
+specifier                   Description             Characters extracted
+i                           Integer                 Any number of digits, optionally preceded by a sign (+ or -).
+                                                    Decimal digits assumed by default (0-9), but a 0 prefix introduces octal digits (0-7),
+                                                    and 0x hexadecimal digits (0-f).
+                                                    Signed argument.
+
+d or u	                    Decimal integer         Any number of decimal digits (0-9),
+                                                    optionally preceded by a sign (+ or -).
+                                                    d is for a signed argument, and u for an unsigned.
+
+o	                        Octal Integer           Any number of octal digits (0-7), optionally preceded by a sign (+ or -).
+                                                    Unsigned argument.
+
+x	                        Hexadecimal integer	    Any number of hexadecimal digits (0-9, a-f, A-F), 
+                                                    optionally preceded by 0x or 0X, and all optionally preceded by a sign (+ or -).
+                                                    Unsigned argument.
+
+f, e, g	                    Floating point number	A series of decimal digits, optionally containing a decimal point, 
+                                                    optionally preceeded by a sign (+ or -) and optionally followed by the e or E character and a decimal integer 
+                                                    (or some of the other sequences supported by strtod).
+                                                    Implementations complying with C99 also support hexadecimal floating-point format when preceded by 0x or 0X.
+
+c	                        Character	            The next character. If a width other than 1 is specified, the function reads exactly width 
+                                                    characters and stores them in the successive locations of the array passed as argument. No null character 
+                                                    is appended at the end.
+
+s	                        String                  String of characters
+                                                    Any number of non-whitespace characters, stopping at the first whitespace character found. 
+                                                    A terminating null character is automatically added at the end of the stored sequence.
+
+p	                        Pointer address	        A sequence of characters representing a pointer. 
+                                                    The particular format used depends on the system and library implementation, 
+                                                    but it is the same as the one used to format %p in fprintf.
+
+[characters]	            Scanset	                Any number of the characters specified between the brackets.
+                                                    A dash (-) that is not the first character may produce non-portable behavior in some library implementations.
+
+[^characters]	            Negated scanset	        Any number of characters none of them specified as characters between the brackets.
+
+n	                        Count	                No input is consumed.
